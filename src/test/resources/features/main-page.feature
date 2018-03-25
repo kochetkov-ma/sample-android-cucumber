@@ -9,7 +9,6 @@ Feature: Тестовое задание - Мобильное приложени
 
   Scenario: Проверка счетов
     * Page - get element 'Показать все счета' and click
-    * Page - get element 'Счета[2]' and check state 'is displayed'
     * Page - get element 'Счета[0]' and save text to 'result'
     * Verify - contains string expected '9 928 214,29' to actual '${result}'
     * Page - get element 'Счета[1]' and save text to 'result'
@@ -18,6 +17,7 @@ Feature: Тестовое задание - Мобильное приложени
     * Verify - contains string expected '12 040,44' to actual '${result}'
 
   Scenario: Проверка карт
+    * Page - check current page 'Основной экран'
     * Page - get element 'Счета и карты' and click
     * Page - check current page 'Счета и карты'
     * Page - get element 'Карты[1]' and click

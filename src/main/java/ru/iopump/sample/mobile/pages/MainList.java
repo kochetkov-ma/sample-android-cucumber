@@ -18,7 +18,7 @@ public class MainList extends AlfaBase {
     private Button showAllAccounts;
 
     @PElement(value = "Счета и карты", desc = "Счета и карты")
-    @FindBy(id = "ru.alfabank.mobile.android:id/widget_cards_group")
+    @FindBy(id = "ru.alfabank.mobile.android:id/cards_widget_text")
     private Button accountsAndCards;
 
     @PElement(value = "Платежи и переводы")

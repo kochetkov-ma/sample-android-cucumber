@@ -2,14 +2,12 @@ group 'mk.iopump.sample'
 version '1.0-SNAPSHOT'
 
 repositories {
-    mavenLocal()
     mavenCentral()
-    /*
     maven {
         name 'oss'
         url 'https://oss.sonatype.org/content/groups/public'
     }
-    */
+
 }
 
 buildscript {
