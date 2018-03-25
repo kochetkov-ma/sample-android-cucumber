@@ -1,0 +1,77 @@
+group 'mk.iopump.sample'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    /*
+    maven {
+        name 'oss'
+        url 'https://oss.sonatype.org/content/groups/public'
+    }
+    */
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+
+    }
+    dependencies {
+        classpath 'io.qameta.allure:allure-gradle:latest.release'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'io.qameta.allure'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+ext {
+    versions = [
+            aspectj      : "1.8.10",
+            allure_gradle: "2.5",
+            annotations  : "3.0.2",
+            lombok       : "latest.release",
+            apache       : "latest.release",
+            guava        : "latest.release",
+            reflections  : "latest.release",
+            logger       : "latest.release",
+            junit        : "4.12",
+            jackson      : "2.9.0.pr4",
+            selenium     : "3.7.0",
+            allure       : "latest.release",
+            assertj      : "3.8.0",
+            allureJunit4 : "latest.release",
+            junit5       : "latest.release",
+            mockito      : "2.+",
+            trove        : "3.+",
+            joda_time    : "latest.release",
+            cucumber     : '2.3.1',
+            iopump       : '0.1-SNAPSHOT'
+    ]
+}
+
+repositories {
+    mavenCentral()
+}
+
+allure {
+    version = '2.4.1'
+    resultsDir = project.file('allure-results')
+    aspectjweaver = true
+    aspectjVersion = versions.aspectj
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    testCompile "io.cucumber:cucumber-junit:$versions.cucumber"
+    compile "io.qameta.allure:allure-cucumber2-jvm:latest.release"
+    compile "ru.iopump.pumpfw:cucumber:$versions.iopump"
+
+}
